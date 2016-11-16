@@ -7,6 +7,8 @@
 #include <algorithm>
 #include <sstream>
 
+#include "error.hpp"
+
 namespace godel {
 
 	/**

@@ -129,8 +129,7 @@ namespace godel {
 		} else if (is_symbol_token(s)) {
 			t.kind = Token::Symbol;
 		} else {
-			// TODO: error
-			t.token = "Error!!!";
+			error("Unknown token `%s'`", s.c_str());
 		}
 
 		return t;
