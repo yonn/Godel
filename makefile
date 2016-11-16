@@ -12,6 +12,9 @@ Godel: src/main.cpp build/repl_tools.o
 build/repl_tools.o: src/repl_tools.*
 	$(CC) $(CFLAGS) src/repl_tools.cpp -o build/repl_tools.o
 
+build/lexer.o: src/lexer.*
+	$(CC) $(CFLAGS) src/lexer.cpp -o build/lexer.o
+
 clean:
 	rm -rf build/*
 	rm -rf bin/*
