@@ -1,4 +1,5 @@
 #include "repl_tools.hpp"
+#include "lexer.hpp"
 
 #define ever (;;)
 
@@ -12,7 +13,17 @@ int main()
 			break;
 		}
 
-		std::cout << "-> " << buffer << std::endl << std::endl;
+		auto tokens = godel::tokenize(buffer);
+
+		std::cout << "{";
+
+		for (const auto& token: tokens) {
+			std::cout << '\t' << token.str() << std::endl;
+		}
+
+		std::cout << "}" << std::endl << std::endl;
+
+		//std::cout << "-> " << buffer << std::endl << std::endl;
 	}
 
 	return 0;

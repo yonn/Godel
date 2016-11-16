@@ -6,7 +6,7 @@ LFLAGS = $(FLAGS)
 
 all: Godel
 
-Godel: src/main.cpp build/repl_tools.o
+Godel: src/main.cpp build/repl_tools.o build/lexer.o
 	$(CC) $(LFLAGS) src/main.cpp build/*.o -o bin/Godel -lreadline
 
 build/repl_tools.o: src/repl_tools.*
