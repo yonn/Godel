@@ -5,7 +5,9 @@ CFLAGS = -c $(FLAGS)
 LFLAGS = $(FLAGS)
 
 OBJS = build/repl_tools.o \
+       build/parser.o \
        build/lexer.o \
+       build/ast.o \
        build/error.o
 
 all: Godel
@@ -16,8 +18,14 @@ Godel: src/main.cpp $(OBJS)
 build/repl_tools.o: src/repl_tools.*
 	$(CC) $(CFLAGS) src/repl_tools.cpp -o build/repl_tools.o
 
-build/lexer.o: src/lexer.* src/error.cpp
+build/parser.o: src/parser.* build/lexer.o build/ast.o build/error.o
+	$(CC) $(CFLAGS) src/parser.cpp -o build/parser.o
+
+build/lexer.o: src/lexer.* build/error.o
 	$(CC) $(CFLAGS) src/lexer.cpp -o build/lexer.o
+
+build/ast.o: src/ast.* build/error.o
+	$(CC) $(CFLAGS) src/ast.cpp -o build/ast.o
 
 build/error.o: src/error.*
 	$(CC) $(CFLAGS) src/error.cpp -o build/error.o

@@ -29,7 +29,7 @@ namespace godel {
 
 		std::string curr;
 		
-		auto end = std::find(std::cbegin(line), std::cend(line), '#');
+		auto end = std::find(std::cbegin(line), std::cend(line), ';');
 		for (auto it = std::cbegin(line); it != end; ++it) {
 			if (not is_token(curr + *it)) {
 				if (curr != "") {
@@ -83,8 +83,7 @@ namespace godel {
 	static bool is_symbol_token(const std::string& s)
 	{
 		std::set<std::string> symbols = { "(", ")",
-		                                  "+", "-",
-						  "*", "/" };
+						  "+", "*" };
 		return (symbols.count(s) == 1);
 	}
 	

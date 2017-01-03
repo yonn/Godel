@@ -16,6 +16,9 @@ namespace godel {
 	 */
 	struct Token {
 
+		/**
+		 * The token the struct represents
+		 */
 		std::string token;
 
 		/**
